@@ -1,5 +1,8 @@
 # Blog Post Formatting and Style Guide
 
+For bounded repository work and offline source checks, see the
+[swarm-ready handoff](SWARM_READY.md).
+
 ## 1. Overall Structure
 
 Every blog post MUST adhere to the following structure:
@@ -90,8 +93,9 @@ Example Table:
 | **Liquidity**   | High                       | Medium                     | Low                        |
 
 *Note: Risk and return potential can vary significantly within each asset class.*
+```
 
-4. Content and Style
+## 4. Content and Style
 
 Tone: Professional, informative, objective, and accessible. Avoid overly casual language, slang, or hype.
 
@@ -105,13 +109,13 @@ Finance Specifics: Be cautious with financial advice. Clearly distinguish betwee
 
 Tech Specifics: Ensure code examples are correct and tested if possible. Specify versions or contexts where relevant (e.g., "This Python 3.9 code...").
 
-5. Metadata
+## 5. Metadata
 
 Categories: Assign ONE primary category per post. Choose from a predefined list (e.g., Finance, Technology, Investing, Software Development, Personal Finance, Cybersecurity).
 
 Tags: Add 3-5 relevant tags per post. Tags should be more specific keywords reflecting the post's content (e.g., python, stock-market, AI, budgeting, cloud-computing, API). Use lowercase and hyphens for multi-word tags.
 
-6. AI-Specific Guidelines
+## 6. AI-Specific Guidelines
 
 Verification: Crucially, all AI-generated content (facts, figures, code, explanations) MUST be fact-checked and verified by a human expert (you). AI can generate plausible-sounding but incorrect information (hallucinations).
 

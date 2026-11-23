@@ -21,7 +21,7 @@ If a `swarm-ready` skill is installed, load it. Otherwise execute the documented
 
 ## Repository starting point
 
-Read: [_config.yml](_config.yml), [_data](_data), [_posts](_posts), [about.md](about.md), [blogformat.md](blogformat.md), [index.md](index.md).
+Use the [blog formatting guide](blogformat.md) as the maintainer entry. The [homepage](index.md) and [about page](about.md) are reader-facing; posts live in [`_posts`](_posts) and site settings are in [`_config.yml`](_config.yml). Preserve the guide's human-review, disclosure, and disclaimer rules when editing posts.
 
 Continue an existing approved issue or a clearly scoped user objective after inspecting the source map below. If none is selected, return the smallest useful improvement and its verifier as the handoff; do not begin a portfolio-wide rewrite.
 
@@ -41,7 +41,27 @@ The base above is an inspection snapshot, not a permanent working branch. Refres
 
 ## Verification starting point
 
-No executable acceptance command was established by this bounded source inspection. Read the initial project specification and record the narrowest existing check before implementation. Do not invent a `test` command or infer that the repository has no tests from this gap. For a documentation-only task, check links, factual source anchors and whitespace; do not build unrelated application code.
+For a formatting-guide change, check that the example fences are balanced and the sections after them are outside code blocks. Run from the repository root:
+
+```sh
+python3 - <<'PY'
+from pathlib import Path
+
+in_example = False
+headings = set()
+for line in Path('blogformat.md').read_text(encoding='utf-8').splitlines():
+    if line.lstrip().startswith('```'):
+        in_example = not in_example
+    elif not in_example and line.startswith('## '):
+        headings.add(line)
+expected = {'## 4. Content and Style', '## 5. Metadata', '## 6. AI-Specific Guidelines'}
+if in_example or not expected <= headings:
+    raise SystemExit('Unclosed example or missing guide headings')
+print('Blog guide fences and headings OK')
+PY
+```
+
+Also check the reciprocal guide/handoff links locally. This is documentation and static verification only. The source names a remote Jekyll theme and does not include a Gemfile or a build workflow; do not fetch the theme, start Jekyll, publish Pages, or treat this check as rendered-site acceptance.
 
 ## Required handoff result
 
